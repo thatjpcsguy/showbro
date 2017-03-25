@@ -10,10 +10,11 @@
     <meta name="keywords" content="Fashion Online Shop, Suits, Cardigans, Shorts, Jeans, Shoes, Swimwear">
     <meta name="robots" content="INDEX,FOLLOW">
 
-    <link rel="icon" href="/static/favicon.png" type="image/x-icon">
-    <link rel="shortcut icon" href="/static/favicon.png" type="image/x-icon">
+    <link rel="icon" href="./static/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./static/favicon.png" type="image/x-icon">
     <link href="./static/showbro_css.css" rel="stylesheet" type="text/css">
     <link href="./static/showbro.css" rel="stylesheet" type="text/css">
+    <link href="./static/custom.css" rel="stylesheet" type="text/css">
 
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -179,7 +180,7 @@
                         </div>
                         <div class="columns small-12 medium-6">
                             <div class="homepage-banners show-for-medium-up">
-                                <a href="#"><img alt="shop sale" src="./static/dad.jpg"></a> <a class="desktop-banner-link" href="#">Shop new arrivals</a></div>
+                                <a href="#"><img alt="shop sale" src="./static/jpcs.jpg"></a> <a class="desktop-banner-link" href="#">Shop new arrivals</a></div>
                         </div>
                     </div>
                     <div class="row">
@@ -536,19 +537,18 @@
         </div>
         <!-- /inner-wrap -->
     </div>
-    <!-- /off-canvas-wrap -->
-    <div class="page-overlay">
-        <div class="page-overlay-bg"></div>
-        <div class="page-overlay-loader"></div>
-    </div>
-    <script>
 
-    </script>
+    <div id="modal">
+        <div class="modalInner">
+            <h1>April Fools!!</h1>
+        </div>
+    </div>
+
     
-</body>
 
 <script>
     var h = document.getElementById("header");
+    var modal = document.getElementById("modal");
 
     var stuck = false;
     var stickPoint = getDistance();
@@ -563,7 +563,7 @@
       var offset = window.pageYOffset;
 
 
-      console.log(stickPoint + '   ' + distance + '   ' + offset + '   ' + stuck);
+      // console.log(stickPoint + '   ' + distance + '   ' + offset + '   ' + stuck);
 
       if ( (distance <= 0) && !stuck) {
         h.style.position = 'fixed';
@@ -575,5 +575,35 @@
         stuck = false;
       }
     }
+
+    var modal_show = false;
+
+    function showModal() {
+        console.log('clicked');
+        console.log('modal_show: ' + modal_show);
+
+        if (!modal_show) {
+            modal.style.display = "block";
+            modal_show = true;
+        }
+        else {
+            modal.style.display = "none";
+            modal_show = false;
+        }
+            
+    }
+
+    var links = document.getElementsByTagName("a");
+
+    for (var i = 0 ; i < links.length; i++) {
+        links[i].addEventListener('click' ,showModal); 
+    }
+
+
+
+
+
 </script>
+</body>
+
 </html>

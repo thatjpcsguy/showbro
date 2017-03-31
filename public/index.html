@@ -587,6 +587,7 @@
         console.log('modal_show: ' + modal_show);
 
         if (!modal_show) {
+            ga('send', 'pageview', '/modal');
             modal.style.display = "block";
             modal_show = true;
         }

@@ -542,8 +542,11 @@
 
     <div id="modal">
         <div class="modalInner">
-            <h1>Coming Soon!!</h1>
-            <p>Showbro is coming soon... In the meantime, find us on <a href="https://www.instagram.com/showbro.com.au/">Instagram</a>.</p>
+            <h1>April Fools!!</h1>
+
+            <div id="ytplayer"></div>
+
+
                                     
         </div>
     </div>
@@ -588,6 +591,14 @@
 
         if (!modal_show) {
             ga('send', 'pageview', '/modal');
+
+            // Load the IFrame Player API code asynchronously.
+            var tag = document.createElement('script');
+            tag.src = "https://www.youtube.com/player_api";
+            var firstScriptTag = document.getElementsByTagName('script')[0];
+            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+
             modal.style.display = "block";
             modal_show = true;
         }
@@ -597,6 +608,27 @@
         }
             
     }
+
+
+
+      // Replace the 'ytplayer' element with an <iframe> and
+      // YouTube player after the API code downloads.
+      var player;
+      function onYouTubePlayerAPIReady() {
+        player = new YT.Player('ytplayer', {
+          height: '360',
+          width: '640',
+          videoId: 'wZmyuNEiSJw',
+          playerVars: {
+            autoplay: true,
+            controls: 0,
+            modestbranding: 1,
+            showinfo: 0,
+          }
+        });
+      }
+
+
 
     var links = document.getElementsByTagName("a");
 
